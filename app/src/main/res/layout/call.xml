@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_up_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <View
+        android:id="@+id/call_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/light_gray"
+        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <ImageView
+        android:id="@+id/incoming_call"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/incoming_icon"
+        app:layout_constraintBottom_toBottomOf="@id/call_bg"
+        app:layout_constraintStart_toStartOf="@+id/call_bg"
+        app:layout_constraintTop_toTopOf="@id/call_bg" />
+
+    <ImageView
+        android:id="@+id/photo_user"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/profile_photo"
+        app:layout_constraintBottom_toBottomOf="@id/call_bg"
+        app:layout_constraintStart_toEndOf="@+id/incoming_call"
+        app:layout_constraintTop_toTopOf="@id/call_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя"
+        android:fontFamily="@font/lato_regular"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/photo_user"
+        app:layout_constraintTop_toTopOf="@id/call_bg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Время звонка"
+        android:fontFamily="@font/lato_regular"
+        android:textSize="14sp"
+        android:textColor="@color/gray"
+        app:layout_constraintStart_toEndOf="@+id/photo_user"
+        app:layout_constraintBottom_toBottomOf="@id/call_bg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/info_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/info_icon"
+        app:layout_constraintEnd_toEndOf="@id/call_bg"
+        app:layout_constraintTop_toTopOf="@id/call_bg"
+        app:layout_constraintBottom_toBottomOf="@id/call_bg"
+        android:layout_marginRight="15dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="дата звонка"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/gray"
+        app:layout_constraintEnd_toStartOf="@id/info_icon"
+        app:layout_constraintTop_toTopOf="@id/call_bg"
+        app:layout_constraintBottom_toBottomOf="@id/call_bg"
+        android:layout_marginRight="15dp"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
