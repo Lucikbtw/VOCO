@@ -54,9 +54,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewChatName = itemView.findViewById(R.id.tv_chat_name);
-            textViewLastMessage = itemView.findViewById(R.id.tv_last_message);
-            textViewTimestamp = itemView.findViewById(R.id.tv_time_send_message);
+            textViewChatName = itemView.findViewById(R.id.username);
+            textViewLastMessage = itemView.findViewById(R.id.last_message);
+            textViewTimestamp = itemView.findViewById(R.id.timestamp);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

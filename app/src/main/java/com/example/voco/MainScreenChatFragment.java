@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,32 +34,49 @@ public class MainScreenChatFragment extends Fragment {
     private ChatAdapter chatAdapter;
     private List<Chat> chatList;
     private OnChatSelectedListener listener;
+    private Button btnContacts;
+
 
     public interface OnChatSelectedListener {
         void onChatSelected(Chat chat);
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof OnChatSelectedListener) {
-            listener = (OnChatSelectedListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + " must implement OnChatSelectedListener");
-        }
-    }
+//    @Override
+//    public void onAttach(@NonNull Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnChatSelectedListener) {
+//            listener = (OnChatSelectedListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString() + " must implement OnChatSelectedListener");
+//        }
+//    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_screen_chat_fragment, container, false);
 
+        btnContacts = view.findViewById(R.id.bottom_navigation);
+
         recyclerViewChats = view.findViewById(R.id.recycler_view_chats);
         recyclerViewChats.setLayoutManager(new LinearLayoutManager(getContext()));
         initializeChatList();
         setupRecyclerView();
 
+
+
         return view;
+    }
+
+    private void setupContactsButton() {
+        btnContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Переход к ContactFragment
+                NavHostFragment.findNavController(MainScreenChatFragment.this)
+                        .navigate(R.id.action_mainScreenChatFragment_to_contactFragment);
+            }
+        });
     }
 
     private void initializeChatList() {
@@ -74,9 +93,13 @@ public class MainScreenChatFragment extends Fragment {
         chatAdapter = new ChatAdapter(chatList, new ChatAdapter.OnChatClickListener() {
             @Override
             public void onChatClick(Chat chat) {
-                if (listener != null) {
-                    listener.onChatSelected(chat);
-                }
+                Bundle bundle = new Bundle();
+                bundle.putString("chatId", chat.getId());
+                bundle.putString("chatName", chat.getName());
+
+
+                NavHostFragment.findNavController(MainScreenChatFragment.this)
+                        .navigate(R.id.action_mainScreenChatFragment_to_chatFragment, bundle);
             }
         });
         recyclerViewChats.setAdapter(chatAdapter);

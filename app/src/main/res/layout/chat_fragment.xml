@@ -147,17 +147,7 @@
         app:layout_constraintBottom_toBottomOf="@id/bg_chat"
         >
 
-        <TextView
-            android:id="@+id/text_view_chat_content"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="Содержимое чата"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:background="@android:color/white"
-            android:textColor="@android:color/black"
-            app:layout_constraintTop_toTopOf="@id/bg_chat"
-            app:layout_constraintBottom_toBottomOf="@id/bg_chat"/>
+
 
         <LinearLayout
             android:id="@+id/chatContainer"
@@ -166,6 +156,18 @@
             android:orientation="vertical" />
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/text_view_chat_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Содержимое чата"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:background="@drawable/krugli_ugli_chat"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="@id/bg_chat"
+        app:layout_constraintBottom_toBottomOf="@id/bg_chat"/>
 
 
     <Button

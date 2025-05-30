@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class ChatFragment extends Fragment {
 
@@ -20,6 +22,8 @@ public class ChatFragment extends Fragment {
 
     private TextView textViewChatName;
     private TextView textViewChatContent;
+
+    private ImageView btnBack;
 
     public static ChatFragment newInstance(String chatId, String chatName) {
         ChatFragment fragment = new ChatFragment();
@@ -46,12 +50,22 @@ public class ChatFragment extends Fragment {
 
         textViewChatName = view.findViewById(R.id.tv_chatname);
         textViewChatContent = view.findViewById(R.id.text_view_chat_content);
+        btnBack = view.findViewById(R.id.bt_back);
 
         if (chatName != null) {
             textViewChatName.setText(chatName);
             textViewChatContent.setText("Чат с " + chatName + "\nID: " + chatId + "\n\nЗдесь будут отображаться сообщения...");
         }
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Возврат к предыдущему фрагменту
+                NavHostFragment.findNavController(ChatFragment.this).navigateUp();
+            }
+        });
+
         return view;
     }
+
 }

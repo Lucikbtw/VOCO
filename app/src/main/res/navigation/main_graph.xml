@@ -3,11 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/mainScreenChatFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.voco.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/contact_fragment" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.voco.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/chat_fragment"
+        >
+        <action
+            android:id="@+id/action_chatFragment_to_mainScreenChatFragment"
+            app:destination="@id/mainScreenChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenChatFragment"
+        android:name="com.example.voco.MainScreenChatFragment"
+        android:label="MainScreenChatFragment"
+        tools:layout="@layout/main_screen_chat_fragment"
+        >
+        <action
+            android:id="@+id/action_mainScreenChatFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_mainScreenChatFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.voco.ContactFragment"
+        android:label="ContactFragment"
+        tools:layout="@layout/contact_fragment"
+        >
+        <action
+            android:id="@+id/action_contactFragment_to_mainScreenChatFragment"
+            app:destination="@id/mainScreenChatFragment" />
+    </fragment>
 </navigation>
