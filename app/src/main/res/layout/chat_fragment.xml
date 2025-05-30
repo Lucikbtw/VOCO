@@ -34,6 +34,213 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9"
         />
+    
+    <ImageView
+        android:id="@+id/bt_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back_icon"
+        app:layout_constraintBottom_toBottomOf="@id/gl_up_start"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_profile_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintBottom_toBottomOf="@id/gl_up_start"
+        android:layout_marginLeft="15dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_chatname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя"
+        android:textSize="18sp"
+        android:fontFamily="@font/lato_regular"
+        app:layout_constraintStart_toEndOf="@id/iv_profile_photo"
+        app:layout_constraintBottom_toBottomOf="@id/gl_up_start"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="30dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_chatstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Статус сети"
+        android:textSize="16sp"
+        android:fontFamily="@font/lato_regular"
+        app:layout_constraintStart_toEndOf="@id/iv_profile_photo"
+        app:layout_constraintBottom_toBottomOf="@id/gl_up_start"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/bt_burger"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/gray"
+        app:icon="@drawable/burger_icon"
+        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@+id/bt_call"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/gray"
+        app:icon="@drawable/call_icon"
+        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
+        app:layout_constraintEnd_toStartOf="@id/bt_burger"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@+id/bt_videocall"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/gray"
+        app:icon="@drawable/videocam_icon"
+        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
+        app:layout_constraintEnd_toStartOf="@id/bt_call"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/bg_chat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/krugli_ugli_chat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/et_message"
+        app:layout_constraintTop_toTopOf="@id/gl_up_start"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:background="@drawable/krugli_ugli_chat"
+        app:layout_constraintTop_toTopOf="@id/bg_chat"
+        app:layout_constraintBottom_toBottomOf="@id/bg_chat"
+        >
+
+        <TextView
+            android:id="@+id/text_view_chat_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Содержимое чата"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/bg_chat"
+            app:layout_constraintBottom_toBottomOf="@id/bg_chat"/>
+
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/bt_send_message"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/blue"
+        app:icon="@drawable/send_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:hint="Сообщение"
+        android:background="@drawable/krugli_ugli_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_send_message"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="70dp"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#CCCCCC"
+        app:layout_constraintTop_toTopOf="@id/et_message"
+        app:layout_constraintBottom_toBottomOf="@id/et_message"
+        app:layout_constraintStart_toStartOf="@id/et_message"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <Button
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:backgroundTint="@color/white"
+        app:icon="@drawable/mic_icon"
+        app:layout_constraintEnd_toEndOf="@+id/et_message"
+        app:layout_constraintTop_toTopOf="@+id/et_message"
+        app:layout_constraintBottom_toBottomOf="@+id/et_message"
+        android:layout_marginRight="5dp"
+        />
+
+    <Button
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        style="?attr/materialIconButtonFilledTonalStyle"
+        android:backgroundTint="@color/white"
+        app:icon="@drawable/attach_file_icon"
+        app:layout_constraintStart_toStartOf="@+id/et_message"
+        app:layout_constraintTop_toTopOf="@+id/et_message"
+        app:layout_constraintBottom_toBottomOf="@+id/et_message"
+        android:layout_marginLeft="5dp"
+        />
+
+
+
+
+
+
+
+
 
 
 

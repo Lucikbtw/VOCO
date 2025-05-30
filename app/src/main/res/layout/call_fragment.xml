@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_up_start"
@@ -36,96 +35,62 @@
         app:layout_constraintGuide_percent="0.9"
         />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_mid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"
-        />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Чаты"
+        android:text="Звонки"
         android:fontFamily="@font/lato_regular"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintBottom_toBottomOf="@id/gl_up_start"
-        android:layout_marginBottom="10dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
         />
 
-
-    <Button
-        android:id="@+id/iconButtonn"
-        style="?attr/materialIconButtonFilledTonalStyle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/gray"
-        app:icon="@drawable/search_icon"
-        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
-        app:layout_constraintEnd_toStartOf="@+id/gl_end" />
-
-
     <ImageView
-        android:id="@+id/bg_chat"
+        android:id="@+id/bg_call"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/krugli_ugli_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintTop_toTopOf="@id/gl_up_start"
-        android:layout_marginTop="20dp"
         />
 
     <ImageView
-        android:id="@+id/bg_chat_2"
+        android:id="@+id/bg_recent_call"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/krugli_ugli_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@id/gl_up_start"
-        android:layout_marginTop="80dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_call"
+        android:background="@drawable/krugli_ugli_dark_gray"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="НЕДАВНИЕ ЗВОНКИ"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@+id/bg_recent_call"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_recent_call"
+        app:layout_constraintStart_toStartOf="@id/gl_start"
         />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_chats"
+    <ListView
+        android:id="@+id/lv_call"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/bg_chat_2"
-        app:layout_constraintEnd_toEndOf="@id/bg_chat_2"
-        app:layout_constraintTop_toTopOf="@+id/bg_chat_2"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Все"
-        android:textSize="18sp"
-        android:fontFamily="@font/lato_regular"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintTop_toTopOf="@id/bg_chat"
-        app:layout_constraintBottom_toTopOf="@id/bg_chat_2"
-        app:layout_constraintEnd_toEndOf="@id/gl_mid"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Архив"
-        android:textSize="18sp"
-        android:fontFamily="@font/lato_regular"
-        app:layout_constraintStart_toStartOf="@id/gl_mid"
-        app:layout_constraintTop_toTopOf="@id/bg_chat"
-        app:layout_constraintBottom_toTopOf="@id/bg_chat_2"
-        app:layout_constraintEnd_toEndOf="@id/gl_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bg_call"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
+        android:layout_marginTop="50dp"
         />
 
 
@@ -135,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@color/gray"
+        android:background="@color/light_gray"
         app:itemIconTint="@color/bottom_nav_colors"
         app:itemTextColor="@color/bottom_nav_colors"
         app:labelVisibilityMode="labeled"
@@ -143,7 +108,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

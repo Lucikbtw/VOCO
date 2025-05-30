@@ -8,115 +8,14 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_up_start"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_down_end"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9"
-    />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_start"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1"
-        />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_end"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9"
-        />
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/Logo"
-        android:layout_marginRight="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/gl_up_start"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="2dp"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:fontFamily="@font/lato_regular"
-        app:layout_constraintBottom_toTopOf="@+id/gl_up_start"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-         />
-
-    <ImageView
-        android:id="@+id/img_mainscreen"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/img"
-        app:layout_constraintBottom_toBottomOf="@id/gl_down_end"
-        app:layout_constraintEnd_toEndOf="@id/gl_end"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintTop_toTopOf="@+id/gl_up_start"
-        android:layout_marginBottom="200dp"
-        android:layout_marginTop="100dp"
-        />
-
-    <TextView
-        android:id="@+id/main_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_bold"
-        android:text="Начните общение!"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/gl_end"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintTop_toBottomOf="@id/img_mainscreen"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:id="@+id/main_text2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_regular"
-        android:text="Отдыхайте, играйте в игры или просто общайтесь. Коснитесь кнопки чтобы начать!"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/gl_end"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintTop_toBottomOf="@id/main_text"
-        android:layout_marginTop="20dp"
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/gl_end"
-        app:layout_constraintStart_toStartOf="@id/gl_start"
-        app:layout_constraintBottom_toBottomOf="@+id/gl_down_end"
-        android:layout_margin="10dp"
-        android:text="Начать"
-        android:textColor="@color/white"
-        android:fontFamily="@font/lato_regular"
-        android:textSize="16dp"
-        android:background="@color/blue"
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
